@@ -7,9 +7,6 @@ on:
     tags:
       - "release-*" # Trigger the workflow on push events to release-* tags
 
-permissions:
-  contents: write
-
 jobs:
   release:
     name: Release
