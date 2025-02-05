@@ -5,7 +5,10 @@ name: Release
 on:
   push:
     tags:
-      - "release-*"
+      - "release-*" # Trigger the workflow on push events to release-* tags
+
+permissions:
+  contents: write
 
 jobs:
   release:
