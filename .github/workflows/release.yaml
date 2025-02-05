@@ -1,4 +1,4 @@
-name: Release # trigger changes to release again
+name: Release
 
 on:
   push:
