@@ -1,4 +1,4 @@
-name: Release #changes to make an older branch
+name: Release # branch for separate old release
 
 on:
   push:
