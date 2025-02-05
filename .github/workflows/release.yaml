@@ -18,13 +18,11 @@ jobs:
       contents: write
       packages: write
       id-token: write
-      repository-projects: write
     steps:
-      - uses: actions/checkout@v4
-      - name: Create release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ github.ref_name }}
-        run: |
-          echo "# Changelog for version ${{ github.ref_name }}" > CHANGELOG.md
-          gh release view "${{ github.ref_name }}" --json body --jq '.body' >> CHANGELOG.md
+      - name: Create release on kubernetes-mixin
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          repository: sleepyfoodie/kubernetes-mixin-copy
+          token: ${{ secrets.GH_BOT_ACCESS_TOKEN }}
+          generate_release_notes: true
